@@ -3,6 +3,7 @@ import "./FormComponent.css";
 
 const FormComponent = ({ addTask }) => {
   const [taskTitle, setTaskTitle] = useState("");
+  const [error, setError] = useState(false);
 
   const handleChange = (event) => {
     setTaskTitle(event.target.value);
@@ -13,6 +14,9 @@ const FormComponent = ({ addTask }) => {
     if (taskTitle) {
       addTask(taskTitle);
       setTaskTitle("");
+      setError(false);
+    } else {
+      setError(true);
     }
   };
   return (
@@ -21,10 +25,10 @@ const FormComponent = ({ addTask }) => {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Enter Task"
+            placeholder={error ? "Please Input Task" : "Enter Task"}
             value={taskTitle}
             onChange={handleChange}
-            className="task_input"
+            className={error ? "task_input_error" : "task_input"}
           />
           <button type="submit" className="submit_button">
             + Add

@@ -4,9 +4,7 @@ import CardComponent from "./CardComponent";
 const Task = ({ task }) => {
   return (
     <>
-      <CardComponent>
-        <h2>{task}</h2>
-      </CardComponent>
+      <CardComponent>{task}</CardComponent>
     </>
   );
 };

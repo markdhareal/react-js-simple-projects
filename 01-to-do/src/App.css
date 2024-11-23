@@ -5,6 +5,16 @@
 
 .app_main_section {
   display: flex;
-  justify-content: center;
   padding: 20px 8%;
+  min-height: 100%;
+}
+
+.task_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 16px;
+  justify-items: center;
 }

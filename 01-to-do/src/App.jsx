@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import FormComponent from "./components/FormComponent";
 import Task from "./components/Task";
 
+const task_local = JSON.parse(localStorage.getItem("tasks") || []);
+
 function App() {
-  const [tasks, setTask] = useState([]);
+  const [tasks, setTask] = useState(task_local);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   const addTask = (newTask) => {
     setTask([...tasks, newTask]);

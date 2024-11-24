@@ -1,10 +1,12 @@
 import React from "react";
 import CardComponent from "./CardComponent";
 
-const Task = ({ task }) => {
+const Task = ({ task, handleDelete }) => {
   return (
     <>
-      <CardComponent>{task}</CardComponent>
+      <CardComponent task={task} handleDelete={handleDelete}>
+        {task}
+      </CardComponent>
     </>
   );
 };

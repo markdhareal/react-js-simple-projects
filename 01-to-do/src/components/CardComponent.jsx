@@ -1,10 +1,11 @@
 import React from "react";
 import "./CardComponent.css";
 
-const CardComponent = ({ children }) => {
+const CardComponent = ({ task, handleDelete }) => {
   return (
     <div className="card">
-      <h2>{children}</h2>
+      <h3>{task}</h3>
+      <button onClick={() => handleDelete(task)}>Delete</button>
     </div>
   );
 };
